@@ -2,10 +2,15 @@ public final static String e = "2.7182818284590452353602874713526624977572470936
 public void setup()  
 {            
      noLoop();  
-     for (int i = 0; i < e.length()-11; i++)
+     for (int i = 2; i < e.length()-10; i++)
      {
-     	double num = Double.parseDouble(e.substring(i+1, i+12));
-     }
+     	double num = Double.parseDouble(e.substring(i, i+10));
+         if (isPrime(num) == true)
+         {
+            System.out.println(e.substring(i, i+10));
+            //break;
+         }
+    }
 }  
 public void draw()  
 {   
@@ -13,14 +18,14 @@ public void draw()
 }  
 public boolean isPrime(double dNum)  
 {   
-    for (int i = 1; i < 10; i++)
-    {
-    	if (num%i == 0)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             % i == 0)
-    	{
-    		return true;
-    	}
-    	return false;
-    }
+    if (dNum < 2)
+        return false;
+
+    for(int i = 2; i <= Math.sqrt(dNum); i++)
+        if (dNum % i == 0)
+            return false;	
+    return true;
+    
 
       
 } 
